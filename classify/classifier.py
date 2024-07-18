@@ -4,7 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
 class binaryclassify:
     
-    def __init__(self,x,y,n_neighbors=4):
+    def __init__(self,X,y,n_neighbors=4):
         self.X = X
         self.y = y
         self.n_neighbors = n_neighbors
