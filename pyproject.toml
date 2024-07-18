@@ -2,5 +2,5 @@
 name = "xbinary_classifier"
 version = "0.0.1"
 
-dependencies = ["numpy"]
+dependencies = ["numpy","matplotlib","sklearn"]
 
