@@ -2,7 +2,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
-class classify:
+class binaryclassify:
     
     def __init__(self,x,y,n_neighbors=4):
         self.X = X
