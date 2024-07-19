@@ -5,7 +5,6 @@ import pickle
 from astropy.io import fits
 from astropy.table import Table, vstack
 # Define our classifying function.
-
 def xbinary_classifier_function(source):
     ''' 
     Classifies an X-ray binary source as either High Mass X-ray Binary (HMXB) or Low Mass X-ray Binary (LMXB).
