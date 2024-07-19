@@ -2,6 +2,7 @@ import joblib
 import os
 import pandas as pd
 import pickle
+import warnings
 from astropy.io import fits
 from astropy.table import Table, vstack
 # Define our classifying function.
@@ -36,6 +37,7 @@ def xbinary_classifier_function(source):
         raise FileNotFoundError(f"Model file not found at {model_path}")
     # Upload our trained model
     model = joblib.load(model_path)
+    warnings.filterwarnings('ignore', message='X does not have valid feature names, but KNeighborsClassifier was fitted with feature names')
     # Get the source data
     source = [source]
     # Make prediction
