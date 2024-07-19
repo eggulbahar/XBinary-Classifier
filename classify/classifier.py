@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix
 import numpy as np
+import matplotlib.pyplot as plt
 class BinaryClassifier:
     
     def __init__(self,X_train,y_train,n_neighbors=4):
