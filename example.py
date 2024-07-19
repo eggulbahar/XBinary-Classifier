@@ -1,9 +1,10 @@
 from astropy.io import fits
 from classify import classifier
 import pandas as pd 
+from sklearn.model_selection import train_test_split
 
-
-data=fits.open('/home/mayhem/Downloads/alldata.fits')
+#prepare data into proper format to train model, use alldata.fits
+data=fits.open('/path/to/alldata.fits')
 
 df = pd.DataFrame(data[1].data)
 df['target'] = df['target'].astype(np.int8)
@@ -18,5 +19,13 @@ y = df['target']
 feature_columns = ['RA', 'DEC', 'VMAG', 'BV_COLOR', 'PORB', 'FLUX', 'FLUX_MAX', 'LII', 'BII', 'VMAG_MIN', 'UB_COLOR', 'PULSE_PERIOD']
 X = df[feature_columns]
 
+
+#split data into train and test datasets
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y,random_state=0)
+
+model=classifier.BinaryClassifier(X_train,y_train)
+model.train()
+cm,accuracy=model.evaluate(X_test,y_test)
+#classify the new data with necessary parameters
+prediction= model.predict(new_X_test)
