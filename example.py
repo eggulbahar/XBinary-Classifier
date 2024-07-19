@@ -24,8 +24,12 @@ X = df[feature_columns]
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y,random_state=0)
 
+#train the model using data with features and target
 model=classifier.BinaryClassifier(X_train,y_train)
 model.train()
+
+# returns confusion matrix plot and accuracy of the model
 cm,accuracy=model.evaluate(X_test,y_test)
+
 #classify the new data with necessary parameters
 prediction= model.predict(new_X_test)
